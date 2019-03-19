@@ -4,10 +4,10 @@
            failures="0"
            errors="0"
            skipped="0"
-           time="2.827">
+           time="3.597">
   <properties />
   
   
-            <testcase name="postApiTest" time="2.827" classname="InterfaceTest.TestDemo.PostApiTest" />
+            <testcase name="postApiTest" time="3.597" classname="InterfaceTest.TestDemo.PostApiTest" />
       
 </testsuite>
