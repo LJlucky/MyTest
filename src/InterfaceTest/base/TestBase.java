@@ -1,6 +1,7 @@
 package InterfaceTest.base;
 
 import AndroidTest.base.Common;
+import org.apache.log4j.PropertyConfigurator;
 import org.testng.annotations.AfterSuite;
 
 import java.io.FileInputStream;
@@ -17,10 +18,16 @@ public class TestBase {
     public int RESPNSE_STATUS_CODE_500 = 500;
 
     public TestBase(){
+
+
         try {
+
             prop = new Properties();
             FileInputStream fis = new FileInputStream(System.getProperty("user.dir")+"\\src\\InterfaceTest\\config\\config.properties");
+            FileInputStream fis1 = new FileInputStream(System.getProperty("user.dir")+"\\src\\config\\log4j.properties");
+
             prop.load(fis);
+            PropertyConfigurator.configure(fis1);
         } catch(FileNotFoundException e){
             e.printStackTrace();
         }catch (IOException e) {

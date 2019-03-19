@@ -11,6 +11,7 @@ import com.alibaba.fastjson.JSONObject;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.util.EntityUtils;
+import org.apache.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
@@ -25,41 +26,40 @@ public class GetApiTest extends TestBase {
     RestClient restClient;
     CloseableHttpResponse closeableHttpResponse;
 
+    final static Logger Log = Logger.getLogger(GetApiTest.class);
 
     @BeforeClass
     public void setUp() {
+
         testBase = new TestBase();
+        //Log.info("测试服务器地址为："+ host.toString());
         host = prop.getProperty("HOST");
-        url = host + "/api/users";
+        //Log.info("当前测试接口的完整地址为："+url.toString());
+        url = host + "/api/users?page=2";
 
     }
 
     @Test
     public void getAPITest() throws ClientProtocolException, IOException {
+        Log.info("开始执行用例...");
         restClient = new RestClient();
-        closeableHttpResponse=restClient.get(url);
+        closeableHttpResponse = restClient.get(url);
+
         //断言状态码是不是200
-        int statusCode = closeableHttpResponse.getStatusLine().getStatusCode();
-        Assert.assertEquals(statusCode,RESPNSE_STATUS_CODE_200,"response status code is not 200");
+        Log.info("测试响应状态码是否是200");
+        int statusCode = restClient.getStatusCode(closeableHttpResponse);
+        Assert.assertEquals(statusCode, RESPNSE_STATUS_CODE_200, "response status code is not 200");
 
-        //把响应内容存储在字符串对象
-        String responseString = EntityUtils.toString(closeableHttpResponse.getEntity(),"UTF-8");
+        JSONObject responseJson = restClient.getResponseJson(closeableHttpResponse);
+        //System.out.println("respon json from API-->" + responseJson);
 
-        //创建Json对象，把上面的字符串系列化成Json对象
-        JSONObject responseJson = JSON.parseObject(responseString);
-
-        //Json内容解析
+        //json内容解析
         String s = TestUtil.getValueByJPath(responseJson,"data[0]/first_name");
-        System.out.println(s);//George
-        Assert.assertEquals(s,"George","first name is not Eve");
-
-        String s1 = TestUtil.getValueByJPath(responseJson,"data[1]/first_name");
-        System.out.println(s1);//George
-        Assert.assertEquals(s1,"Janet","first name is not Eve");
-
-        String s2 = TestUtil.getValueByJPath(responseJson,"data[2]/first_name");
-        System.out.println(s2);//George
-        Assert.assertEquals(s2,"Emma","first name is not Eve");
+        Log.info("执行JSON解析，解析的内容是 " + s);
+        //System.out.println(s);
+        Log.info("接口内容响应断言");
+        Assert.assertEquals(s, "Eve","first name is not Eve");
+        Log.info("用例执行结束...");
     }
 }
 
