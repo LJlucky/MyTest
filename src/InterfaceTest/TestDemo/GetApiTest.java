@@ -1,16 +1,12 @@
 package InterfaceTest.TestDemo;
 
-
 import java.io.IOException;
-
 import InterfaceTest.base.TestBase;
 import InterfaceTest.restclient.RestClient;
 import InterfaceTest.util.TestUtil;
-import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.methods.CloseableHttpResponse;
-import org.apache.http.util.EntityUtils;
 import org.apache.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
