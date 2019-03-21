@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.io.File;
 import java.util.Properties;
+
 import org.springframework.core.io.support.PropertiesLoaderUtils;
 
 public class Common {
@@ -85,10 +86,16 @@ public class Common {
      * 复制测试报告并重命名
      */
     public static void copyReport() {
-        String oldPath = "D:\\idea-workspace\\TestDemo\\report.html";
-        String newPath1 = "D:\\idea-workspace\\TestDemo\\Report";
-//        String newPath2 = "D:\\lijun\\idea-workspace\\hrcfc\\Report\\report";
-        String newPath2 = "D:\\idea-workspace\\TestDemo\\Report";
+        String objPath = System.getProperty("user.dir");
+//        String oldPath = "D:\\idea-workspace\\TestDemo\\report.html";
+//        String newPath1 = "D:\\idea-workspace\\TestDemo\\Report";
+////        String newPath2 = "D:\\lijun\\idea-workspace\\hrcfc\\Report\\report";
+//        String newPath2 = "D:\\idea-workspace\\TestDemo\\Report";
+
+        String oldPath = objPath + "\\report.html";
+        String newPath1 = objPath +  "\\Report";
+//        String newPath2 = objPath +  "D:\\lijun\\idea-workspace\\hrcfc\\Report\\report";
+        String newPath2 = objPath +  "\\Report";
 
         String oldName = "report.html";
         String newName = "Android自动化_" + getStringToday() + "_Report.html";
