@@ -7,7 +7,8 @@ import org.testng.annotations.Test;
 
 public class startWeb extends InitWeb {
 
-    WebDriver driver;
+
+    private WebDriver driver;
 
     @BeforeClass
     public void setDriver() {
