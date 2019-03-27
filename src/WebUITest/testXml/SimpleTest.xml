@@ -8,7 +8,7 @@
         <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
     </listeners>
 
-    <test verbose="3" preserve-order="true" name="D:\idea-workspace\TestDemo">
+    <test verbose="3" preserve-order="true" name="D:\ProgramFiles\idea-workspace\MyTest">
         <!--    <classes>
                <class name="cases.register_test001">
                <methods>

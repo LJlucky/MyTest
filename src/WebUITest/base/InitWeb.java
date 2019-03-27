@@ -10,12 +10,12 @@ public class InitWeb {
     private WebDriver driver;
 
     @BeforeSuite
-    private void startTest() {
+    public void startTest() {
         String url = "https://www.baidu.com";
-        System.setProperty("webdriver.chrome.driver", "D:\\idea-workspace\\TestDemo\\src\\WebUITest\\Driver\\chromedriver.exe");
+        String objPath = System.getProperty("user.dir")+"\\src\\WebUITest\\Driver\\chromedriver.exe";
+        System.setProperty("webdriver.chrome.driver",objPath);
         driver = new ChromeDriver();
         driver.get(url);
-        driver.quit();
     }
 
     protected WebDriver getDriver() {
