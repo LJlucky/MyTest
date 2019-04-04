@@ -7,6 +7,6 @@ public class test {
     public static void main(String[] args) throws Exception {
 
         Common test1 = new Common();
-        test1.YamlUtil();
+        test1.testLoadYaml();
     }
 }

@@ -17,7 +17,7 @@ public class InitAppium {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("platformVersion", "5.0");
         capabilities.setCapability("deviceName", "Nexus4");
-        capabilities.setCapability("udid", "192.168.22.102:5555");
+        capabilities.setCapability("udid", "192.168.22.101:5555");
         capabilities.setCapability("appPackage", "com.hrcfc.hrApp.custManager");
         capabilities.setCapability("appActivity", ".base.LaunchActivity_");
         capabilities.setCapability("platformName", "Android");
