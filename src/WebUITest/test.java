@@ -7,6 +7,8 @@ public class test {
     public static void main(String[] args) throws Exception {
 
         Common test1 = new Common();
-        test1.testLoadYaml();
+        WebUI test = new WebUI();
+        test.getElement("logoutConfirm");
+
     }
 }
