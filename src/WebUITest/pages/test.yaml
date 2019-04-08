@@ -4,3 +4,9 @@ logout:
 logoutConfirm:
   type:xpath
   value:"//*[@id='queding']//td/*//button"
+baidu:
+  type:xpath
+  value:"//*[@id='su']"
+baidu1:
+  type:id
+  value:"su"

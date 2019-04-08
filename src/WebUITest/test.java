@@ -7,8 +7,8 @@ public class test {
     public static void main(String[] args) throws Exception {
 
         Common test1 = new Common();
-        WebUI test = new WebUI();
-        test.getElement("logoutConfirm");
+//        WebUI test = new WebUI();
+//        test.getElement("logoutConfirm");
 
     }
 }
