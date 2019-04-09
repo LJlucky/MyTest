@@ -1,8 +1,3 @@
-2019-03-20 11:15:34 735 INFO  GetApiTest:47 - 开始执行用例...
-2019-03-20 11:15:35 867 INFO  RestClient:70 - 开始发送get请求...
-2019-03-20 11:15:36 426 INFO  RestClient:73 - 发送请求成功！开始得到响应对象。
-2019-03-20 11:15:36 426 INFO  GetApiTest:52 - 测试响应状态码是否是200
-2019-03-20 11:15:36 427 INFO  RestClient:125 - 解析，得到响应状态码:200
-2019-03-20 11:15:36 431 INFO  RestClient:139 - 得到响应对象的String格式
-2019-03-20 11:15:36 795 INFO  RestClient:142 - 返回响应内容的JSON格式
-2019-03-20 11:15:36 837 INFO  GetApiTest:67 - 用例执行结束...
+2019-04-08 17:44:45 140 INFO  WebUI:76 - 开始查找元By.id: su
+2019-04-08 17:44:45 207 INFO  WebUI:79 - 已找到元素By.id: su
+2019-04-08 17:44:45 227 INFO  WebUI:93 - 测试是不是获取成功[[ChromeDriver: chrome on XP (c1c5f97940daeb8b834c7daa7d8343dd)] -> id: su]
