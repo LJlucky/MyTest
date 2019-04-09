@@ -30,7 +30,7 @@ public class InitWeb {
         }
 
         try {
-            Common.LoadYaml("123");
+            Common.LoadYaml("hrweixin.yaml");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -41,7 +41,7 @@ public class InitWeb {
         System.setProperty("webdriver.chrome.driver",objPath);
         driver = new ChromeDriver();
         driver.get(url);
-        driver.manage().window().setSize(new Dimension(800, 600));
+        driver.manage().window().setSize(new Dimension(800, 1000));
     }
 
     protected WebDriver getDriver() {

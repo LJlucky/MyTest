@@ -13,7 +13,15 @@ import java.util.Map;
 public class WebUI {
     private final static Logger Log = Logger.getLogger(WebUI.class);
     public WebDriver driver;
+    Map<String, Map<String, String>> ml;
 
+    {
+        try {
+            ml = Common.getYaml();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
 
     public WebUI(WebDriver driver) {
         this.driver = driver;
@@ -31,10 +39,10 @@ public class WebUI {
     //创建by对象
     private By getBy(String key) throws FileNotFoundException {
         By by = null;
-        Map<String, Map<String, String>> ml = null;
+//        Map<String, Map<String, String>> ml = null;
 //        Map<String, String> ml = null;
 
-        ml = Common.getYaml(key);
+//        ml = Common.getYaml();
 
         if (ml.containsKey(key)) {
             Map<String, String> m = ml.get(key);
@@ -71,10 +79,10 @@ public class WebUI {
      *
      */
     private boolean isElementExist(By by) {
-        Log.info("开始查找元" + by);
+//        Log.info("开始查找元" + by);
         try {
             driver.findElement(by);
-            Log.info("已找到元素" + by);
+//            Log.info("已找到元素" + by);
             return true;
         } catch (NoSuchElementException ex) {
             return false;
@@ -88,8 +96,8 @@ public class WebUI {
         By by = this.getBy(key);
         if (isElementExist(by)) {
             element = driver.findElement(by);
-            Log.info("测试是不是获取成功" + element);
-            System.out.println("测试是不是获取成功" + element);
+//            Log.info("测试是不是获取成功" + element);
+//            System.out.println("测试是不是获取成功" + element);
         }else{
             Log.info("获取" + element + "失败！！！");
         }
