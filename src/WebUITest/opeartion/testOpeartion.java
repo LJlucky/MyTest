@@ -15,4 +15,8 @@ public class testOpeartion extends WebUI {
         click(getElement("baidu1"));
     }
 
+    public void testHr() throws FileNotFoundException {
+        click(getElement("loginName"));
+    }
+
 }

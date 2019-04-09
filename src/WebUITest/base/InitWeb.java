@@ -1,12 +1,14 @@
 package WebUITest.base;
 
 import org.apache.log4j.PropertyConfigurator;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
@@ -27,11 +29,19 @@ public class InitWeb {
             e.printStackTrace();
         }
 
-        String url = "https://www.baidu.com";
+        try {
+            Common.LoadYaml("123");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+//        String url = "https://www.baidu.com";
+        String url = "https://pre-hrweixin.hrcfc.com/hrwx/wechat/sign/login";
         String objPath = System.getProperty("user.dir")+"\\src\\WebUITest\\Driver\\chromedriver.exe";
         System.setProperty("webdriver.chrome.driver",objPath);
         driver = new ChromeDriver();
         driver.get(url);
+        driver.manage().window().setSize(new Dimension(800, 600));
     }
 
     protected WebDriver getDriver() {

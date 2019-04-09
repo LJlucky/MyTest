@@ -16,8 +16,16 @@
                </methods>
                </class>-->
 
-        <classes>
+        <!--  <classes>
             <class name="WebUITest.testDemo.startWeb">
+                <methods>
+                    <include name="test001"/>
+                </methods>
+            </class>
+        </classes>-->
+
+        <classes>
+            <class name="WebUITest.testDemo.login">
                 <methods>
                     <include name="test001"/>
                 </methods>

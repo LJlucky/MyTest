@@ -34,7 +34,7 @@ public class WebUI {
         Map<String, Map<String, String>> ml = null;
 //        Map<String, String> ml = null;
 
-        ml = Common.LoadYaml(key);
+        ml = Common.getYaml(key);
 
         if (ml.containsKey(key)) {
             Map<String, String> m = ml.get(key);

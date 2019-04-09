@@ -12,15 +12,23 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Common {
-
-
-    public static Map<String, Map<String, String>> LoadYaml(String key) throws FileNotFoundException {
+    public static Map<String, Map<String, String>> test1;
+    static File ymlFile;
+//读取YAML文件
+    public static void LoadYaml(String yamlName) throws FileNotFoundException {
         Yaml yaml = new Yaml();
-        File ymlFile = new File(System.getProperty("user.dir") + "\\src\\WebUITest\\pages\\test.yaml");
-        Map<String, Map<String, String>> test1 = Yaml.loadType(new FileInputStream(ymlFile), HashMap.class);
+//        yamlName = "test.yaml";
+        String path = System.getProperty("user.dir") + "\\src\\WebUITest\\pages\\" + yamlName;
+        ymlFile = new File(path);
+    }
+
+    //读取YAML文件
+    public static Map<String, Map<String, String>> getYaml(String key) throws FileNotFoundException {
+//        LoadYaml("test.yaml");
+        test1 = Yaml.loadType(new FileInputStream(ymlFile), HashMap.class);
         Map<String, String> m = null;
-        if (test1.containsKey("logout")) {
-            m = test1.get("logout");
+        if (test1.containsKey(key)) {
+            m = test1.get(key);
             String type = m.get("type");
             String value = m.get("value");
             System.out.println(type);

@@ -1,0 +1,9 @@
+loginName:
+  type:id
+  value:"loginName"
+loginPwd:
+  type:id
+  value:"loginPwd"
+loginBtn:
+  type:id
+  value:"login"

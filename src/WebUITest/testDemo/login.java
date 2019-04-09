@@ -1,5 +1,6 @@
 package WebUITest.testDemo;
 
+import WebUITest.base.Common;
 import WebUITest.base.InitWeb;
 import WebUITest.opeartion.testOpeartion;
 import org.openqa.selenium.WebDriver;
@@ -8,7 +9,8 @@ import org.testng.annotations.Test;
 
 import java.io.FileNotFoundException;
 
-public class startWeb extends InitWeb {
+public class login extends InitWeb {
+
 
 
     private WebDriver driver;
@@ -17,6 +19,11 @@ public class startWeb extends InitWeb {
     public void setDriver() {
         driver = getDriver();
         a = new testOpeartion(driver);
+        try {
+            Common.LoadYaml("hrweixin.yaml");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
@@ -29,5 +36,4 @@ public class startWeb extends InitWeb {
             System.out.println("启动失败！！");
         }
     }
-
 }
