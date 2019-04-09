@@ -1,7 +1,5 @@
 package WebUITest.base;
 
-import cn.hutool.log.Log;
-import cn.hutool.log.LogFactory;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
@@ -13,9 +11,9 @@ import java.io.FileNotFoundException;
 import java.util.Map;
 
 public class WebUI {
-    final static Logger Log = Logger.getLogger(WebUI.class);
+    private final static Logger Log = Logger.getLogger(WebUI.class);
     public WebDriver driver;
-    public Common common;
+
 
     public WebUI(WebDriver driver) {
         this.driver = driver;
@@ -72,7 +70,7 @@ public class WebUI {
      *判断元素是否存在
      *
      */
-    public boolean isElementExist(By by) {
+    private boolean isElementExist(By by) {
         Log.info("开始查找元" + by);
         try {
             driver.findElement(by);
