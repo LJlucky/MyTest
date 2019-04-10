@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+
+    <listeners>
+
+        <listener class-name="org.uncommons.reportng.HTMLReporter"/>
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
+    </listeners>
+
+    <test verbose="3" preserve-order="true" name="D:\ProgramFiles\idea-workspace\MyTest">
+        <!--    <classes>
+               <class name="cases.register_test001">
+               <methods>
+                   <include name="register001"/>
+               </methods>
+               </class>-->
+
+        <!--  <classes>
+            <class name="WebUITest.testDemo.startWeb">
+                <methods>
+                    <include name="test001"/>
+                </methods>
+            </class>
+        </classes>-->
+
+        <classes>
+            <class name="WebUITest.testcase.MianHeTest">
+                <methods>
+                    <include name="test001"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
