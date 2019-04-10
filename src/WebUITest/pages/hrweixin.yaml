@@ -9,4 +9,5 @@ loginBtn:
   value:"login"
 mainBtn:
   type:xpath
-  value:"/html/body/div[2]/a[1]"
+  value:"/html//a[@href='/hrwx/manager/reviews']"
+
