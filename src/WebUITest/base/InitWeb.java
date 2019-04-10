@@ -41,7 +41,7 @@ public class InitWeb {
         System.setProperty("webdriver.chrome.driver",objPath);
         driver = new ChromeDriver();
         driver.get(url);
-        driver.manage().window().setSize(new Dimension(800, 1000));
+        driver.manage().window().setSize(new Dimension(500, 700));
     }
 
     protected WebDriver getDriver() {

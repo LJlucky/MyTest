@@ -37,7 +37,7 @@ public class WebUI {
     }
 
     //创建by对象
-    private By getBy(String key) throws FileNotFoundException {
+    private By getBy(String key){
         By by = null;
 //        Map<String, Map<String, String>> ml = null;
 //        Map<String, String> ml = null;
@@ -91,7 +91,7 @@ public class WebUI {
 
 
     //根据名称 返回webElement对象
-    public WebElement getElement(String key) throws FileNotFoundException {
+    public WebElement getElement(String key) {
         WebElement element = null;
         By by = this.getBy(key);
         if (isElementExist(by)) {

@@ -7,3 +7,6 @@ loginPwd:
 loginBtn:
   type:id
   value:"login"
+mainBtn:
+  type:xpath
+  value:"/html/body/div[2]/a[1]"

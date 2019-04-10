@@ -1,3 +1,6 @@
-2019-04-08 17:44:45 140 INFO  WebUI:76 - 开始查找元By.id: su
-2019-04-08 17:44:45 207 INFO  WebUI:79 - 已找到元素By.id: su
-2019-04-08 17:44:45 227 INFO  WebUI:93 - 测试是不是获取成功[[ChromeDriver: chrome on XP (c1c5f97940daeb8b834c7daa7d8343dd)] -> id: su]
+2019-04-10 17:38:48 745 INFO  Common:21 - ==========开始加载hrweixin.yaml元素==========
+2019-04-10 17:38:56 911 INFO  Common:32 - ==========元素加载成功==========
+2019-04-10 17:38:57 150 INFO  HrOpeartion:22 - 第一步：输入登录账户
+2019-04-10 17:38:57 315 INFO  HrOpeartion:29 - 第二步：输入登录密码
+2019-04-10 17:38:57 469 INFO  HrOpeartion:35 - 第三步：点击登录操作
+2019-04-10 17:38:57 512 INFO  WebUI:102 - 获取null失败！！！
