@@ -21,6 +21,9 @@ public class HrBusiness {
         hrOpeartion.inputLoginPwd();
         hrOpeartion.clickLogin();
         hrOpeartion.clickMain();
+        hrOpeartion.inputSearchPhone();
+        hrOpeartion.clicksignforBtn();
+        hrOpeartion.clickdisposeBtn();
     }
 
 }

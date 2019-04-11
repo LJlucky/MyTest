@@ -9,4 +9,16 @@ loginBtn:
   value:"login"
 mainBtn:
   type:xpath
-  value:"/html/body/div[2]/a[1]"
+  value:"//html//a[@href='/hrwx/manager/reviews']"
+searchInp:
+  type:id
+  value:"param"
+signforBtn:
+  type:xpath
+  value:"//body/div[@class='weui-cells weui-cells_form']/div[1]/div[@class='weui-cell__ft']/p[@class='weui-btn weui-btn_mini weui-btn_warn']"
+disposeBtn:
+  type:xpath
+  value:"//body/div[@class='weui-cells weui-cells_form']/div[@class='weui-cell']/div[@class='weui-cell__ft']/p[1]"
+cancelBtn:
+  type:xpath
+  value:"//body/div[@class='weui-cells weui-cells_form']/div[1]/div[@class='weui-cell__ft']/p[2]"

@@ -6,8 +6,11 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.FileNotFoundException;
+import java.util.List;
 import java.util.Map;
 
 public class WebUI {
@@ -37,7 +40,7 @@ public class WebUI {
     }
 
     //创建by对象
-    private By getBy(String key){
+    public By getBy(String key) {
         By by = null;
 //        Map<String, Map<String, String>> ml = null;
 //        Map<String, String> ml = null;
@@ -74,18 +77,36 @@ public class WebUI {
         return by;
     }
 
+
     /*
      *判断元素是否存在
      *
      */
-    private boolean isElementExist(By by) {
+    public boolean isElementExist(By by) {
 //        Log.info("开始查找元" + by);
         try {
             driver.findElement(by);
-//            Log.info("已找到元素" + by);
+            Log.info("已找到元素" + by);
             return true;
         } catch (NoSuchElementException ex) {
             return false;
+        }
+    }
+
+    //规定时间内等待元素
+    protected void waitForElement(By by) {
+        for (int second = 0; ; second++) {
+            if (second > 20) {
+                Log.info(by + "元素加载失败");
+            }
+            try {
+                if (isElementExist(by)) {
+                    Log.info("元素存在===" + by + ">>>>>" + second);
+                    break;
+                }
+            } catch (Exception e) {
+                Log.info("在20秒内未找到元素" + by);
+            }
         }
     }
 
@@ -94,15 +115,22 @@ public class WebUI {
     public WebElement getElement(String key) {
         WebElement element = null;
         By by = this.getBy(key);
-        if (isElementExist(by)) {
-            element = driver.findElement(by);
-//            Log.info("测试是不是获取成功" + element);
-//            System.out.println("测试是不是获取成功" + element);
-        }else{
-            Log.info("获取" + element + "失败！！！");
-        }
+//        if (isElementExist(by)) {
+//            element = driver.findElement(by);
+////            Log.info("测试是不是获取成功" + element);
+////            System.out.println("测试是不是获取成功" + element);
+//        }else{
+//            Log.info("获取" + element + "失败！！！");
+//        }
+        waitForElement(by);
+//        WebDriverWait wait = new WebDriverWait(driver, 20);
+//        wait.until(ExpectedConditions.presenceOfElementLocated(by));
+//        final List<WebElement> until = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(by);
+        element = driver.findElement(by);
+
         return element;
     }
+
 
     //根据element,进行点击操作
     public void click(WebElement element) {

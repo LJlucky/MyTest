@@ -11,6 +11,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
+import java.util.concurrent.TimeUnit;
 
 public class InitWeb {
 
@@ -25,7 +26,7 @@ public class InitWeb {
             props.load(fis1);//将配置加载到系统参数对象中
             fis1.close();
             PropertyConfigurator.configure(props);//装入log4j配置信息
-        }catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
 
@@ -37,11 +38,13 @@ public class InitWeb {
 
 //        String url = "https://www.baidu.com";
         String url = "https://pre-hrweixin.hrcfc.com/hrwx/wechat/sign/login";
-        String objPath = System.getProperty("user.dir")+"\\src\\WebUITest\\Driver\\chromedriver.exe";
-        System.setProperty("webdriver.chrome.driver",objPath);
+        String objPath = System.getProperty("user.dir") + "\\src\\WebUITest\\Driver\\chromedriver.exe";
+        System.setProperty("webdriver.chrome.driver", objPath);
         driver = new ChromeDriver();
         driver.get(url);
         driver.manage().window().setSize(new Dimension(500, 700));
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+
     }
 
     protected WebDriver getDriver() {
