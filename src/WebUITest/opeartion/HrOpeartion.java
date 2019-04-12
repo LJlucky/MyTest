@@ -2,6 +2,7 @@ package WebUITest.opeartion;
 
 import WebUITest.base.WebUI;
 import org.apache.log4j.Logger;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -18,7 +19,7 @@ public class HrOpeartion extends WebUI {
     public void inputLoginName() {
         WebElement element = getElement("loginName");
         element.clear();
-        element.sendKeys("8901000007");
+        element.sendKeys("8901000016");
         Log.info("第一步：输入登录账户");
     }
 
@@ -44,7 +45,7 @@ public class HrOpeartion extends WebUI {
     public void inputSearchPhone() {
         WebElement element = getElement("searchInp");
         element.clear();
-        element.sendKeys("18611065983");
+        element.sendKeys("13966650021");
         element.sendKeys(Keys.ENTER);
         Log.info("第五步：输入搜索手机号码，点击enter键进行搜索操作");
     }
@@ -57,7 +58,7 @@ public class HrOpeartion extends WebUI {
         }
 
         try {
-            Thread.sleep(1000);
+            Thread.sleep(500);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -80,8 +81,22 @@ public class HrOpeartion extends WebUI {
         }else {
             Log.info("=========元素失效了====================");
         }
-//        element.click();
+    }
 
+    public void clickNextStepBtn(){
+
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        WebElement element = getElement("nextstepBtn");
+        WebElement element2 =getElement("title");
+        String title = element2.getText();
+        Log.info("当前页的title是：" + title);
+        swip(element);
+        click(element);
+        Log.info(title +"：点击“下一步”操作");
     }
 
 }

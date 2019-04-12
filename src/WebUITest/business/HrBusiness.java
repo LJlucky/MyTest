@@ -24,6 +24,10 @@ public class HrBusiness {
         hrOpeartion.inputSearchPhone();
         hrOpeartion.clicksignforBtn();
         hrOpeartion.clickdisposeBtn();
+        hrOpeartion.clickNextStepBtn();
+        hrOpeartion.clickNextStepBtn();
+        hrOpeartion.clickNextStepBtn();
+
     }
 
 }

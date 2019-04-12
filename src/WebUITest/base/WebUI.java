@@ -1,11 +1,8 @@
 package WebUITest.base;
 
 import org.apache.log4j.Logger;
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -86,7 +83,7 @@ public class WebUI {
 //        Log.info("开始查找元" + by);
         try {
             driver.findElement(by);
-            Log.info("已找到元素" + by);
+//            Log.info("已找到元素" + by);
             return true;
         } catch (NoSuchElementException ex) {
             return false;
@@ -101,7 +98,7 @@ public class WebUI {
             }
             try {
                 if (isElementExist(by)) {
-                    Log.info("元素存在===" + by + ">>>>>" + second);
+//                    Log.info("元素存在===" + by + ">>>>>" + second);
                     break;
                 }
             } catch (Exception e) {
@@ -135,6 +132,13 @@ public class WebUI {
     //根据element,进行点击操作
     public void click(WebElement element) {
         element.click();
+    }
+
+    //根据element,进行点击操作
+    public void swip(WebElement element){
+        JavascriptExecutor je = (JavascriptExecutor)driver;
+
+        je.executeScript("arguments[0].scrollIntoView(true);",element);
     }
 
 }

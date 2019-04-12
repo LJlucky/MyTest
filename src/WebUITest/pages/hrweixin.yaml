@@ -22,3 +22,9 @@ disposeBtn:
 cancelBtn:
   type:xpath
   value:"//body/div[@class='weui-cells weui-cells_form']/div[1]/div[@class='weui-cell__ft']/p[2]"
+nextstepBtn:
+  type:id
+  value:"refer"
+title:
+  type:xpath
+  value:"//div[@class='weui-header']/h1[@class='weui-header-title']"
