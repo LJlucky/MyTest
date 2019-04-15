@@ -13,6 +13,8 @@ import java.util.Map;
 public class WebUI {
     private final static Logger Log = Logger.getLogger(WebUI.class);
     public WebDriver driver;
+    public JavascriptExecutor js = (JavascriptExecutor) driver;
+
     Map<String, Map<String, String>> ml;
 
     {
@@ -124,7 +126,8 @@ public class WebUI {
 //        wait.until(ExpectedConditions.presenceOfElementLocated(by));
 //        final List<WebElement> until = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(by);
         element = driver.findElement(by);
-
+//        js.executeScript("arguments[0].setAttribute('style', arguments[1]);", element, "color: orange; border: 4px solid orange;");
+//        js.executeScript("arguments[0].setAttribute('style', 'background: yellow; border: 2px solid red;');",element);
         return element;
     }
 
@@ -135,10 +138,10 @@ public class WebUI {
     }
 
     //根据element,进行点击操作
-    public void swip(WebElement element){
-        JavascriptExecutor je = (JavascriptExecutor)driver;
+    public void swip(WebElement element) {
+        JavascriptExecutor je = (JavascriptExecutor) driver;
 
-        je.executeScript("arguments[0].scrollIntoView(true);",element);
+        je.executeScript("arguments[0].scrollIntoView(true);", element);
     }
 
 }

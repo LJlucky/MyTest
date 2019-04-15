@@ -53,6 +53,7 @@ public class HrOpeartion extends WebUI {
     public void clicksignforBtn() {
 
         if (isElementExist(getBy("cancelBtn"))) {
+            Log.info("进件已签收，取消后重新签收");
             WebElement element = getElement("cancelBtn");
             element.click();
         }
@@ -66,24 +67,24 @@ public class HrOpeartion extends WebUI {
         element.click();
         Log.info("第六步：签收操作");
 
+    }
+
+    public void clickdisposeBtn() {
         try {
             Thread.sleep(500);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-    }
-
-    public void clickdisposeBtn() {
         WebElement element = getElement("disposeBtn");
-        if(element.isDisplayed()){
+        if (element.isDisplayed()) {
             element.click();
             Log.info("第七步：处理操作");
-        }else {
+        } else {
             Log.info("=========元素失效了====================");
         }
     }
 
-    public void clickNextStepBtn(){
+    public void clickNextStepBtn() {
 
         try {
             Thread.sleep(2000);
@@ -91,12 +92,26 @@ public class HrOpeartion extends WebUI {
             e.printStackTrace();
         }
         WebElement element = getElement("nextstepBtn");
-        WebElement element2 =getElement("title");
+        WebElement element2 = getElement("title");
         String title = element2.getText();
         Log.info("当前页的title是：" + title);
         swip(element);
         click(element);
-        Log.info(title +"：点击“下一步”操作");
+        Log.info(title + "：点击“下一步”操作");
+    }
+
+    public void chooseLoanInformation() {
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        WebElement element1 = getElement("productType");
+        WebElement element2 = getElement("repayType");
+        element1.click();
+//        js.executeScript("");
+        String text2 = element2.getText();
+        Log.info(text2);
     }
 
 }

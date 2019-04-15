@@ -28,3 +28,9 @@ nextstepBtn:
 title:
   type:xpath
   value:"//div[@class='weui-header']/h1[@class='weui-header-title']"
+productType:
+  type:xpath
+  value:"//*[@id='productType']"
+repayType:
+  type:id
+  value:"repayType"
