@@ -3,11 +3,7 @@ package WebUITest.base;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.io.FileNotFoundException;
-import java.util.List;
 import java.util.Map;
 
 public class WebUI {
@@ -126,8 +122,6 @@ public class WebUI {
 //        wait.until(ExpectedConditions.presenceOfElementLocated(by));
 //        final List<WebElement> until = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(by);
         element = driver.findElement(by);
-//        js.executeScript("arguments[0].setAttribute('style', arguments[1]);", element, "color: orange; border: 4px solid orange;");
-//        js.executeScript("arguments[0].setAttribute('style', 'background: yellow; border: 2px solid red;');",element);
         return element;
     }
 
@@ -137,11 +131,30 @@ public class WebUI {
         element.click();
     }
 
-    //根据element,进行点击操作
+    //根据element,进行滑动操作
     public void swip(WebElement element) {
         JavascriptExecutor je = (JavascriptExecutor) driver;
 
         je.executeScript("arguments[0].scrollIntoView(true);", element);
+    }
+
+    /**
+     * 每隔一秒check一下页面加载是否完成，check次数是25
+     */
+    public void checkPageIsReady(JavascriptExecutor js) {
+//        JavascriptExecutor js = (JavascriptExecutor) driver;
+        for (int i = 0; i < 25; i++) {
+            if ("complete".equals(js.executeScript("return document.readyState").toString())) {
+                Log.info("加载完毕。。。。。。。");
+                break;
+            }
+            try {
+                Log.info("未加载完毕，等待一秒。。。。。。。");
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
 }

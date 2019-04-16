@@ -22,8 +22,8 @@ public class HrBusiness {
         hrOpeartion.clickLogin();
         hrOpeartion.clickMain();
         hrOpeartion.inputSearchPhone();
-        hrOpeartion.clicksignforBtn();
-        hrOpeartion.clickdisposeBtn();
+        hrOpeartion.clickSignforBtn();
+        hrOpeartion.clickDisposeBtn();
         hrOpeartion.clickNextStepBtn();
         hrOpeartion.clickNextStepBtn();
         hrOpeartion.clickNextStepBtn();

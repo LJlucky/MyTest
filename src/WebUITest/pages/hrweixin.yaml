@@ -1,36 +1,72 @@
+#用户名称
 loginName:
   type:id
   value:"loginName"
+#密码
 loginPwd:
   type:id
   value:"loginPwd"
+#登录按钮
 loginBtn:
   type:id
   value:"login"
+#面和面签
 mainBtn:
   type:xpath
   value:"//html//a[@href='/hrwx/manager/reviews']"
+#搜索框
 searchInp:
   type:id
   value:"param"
+#签收按钮
 signforBtn:
   type:xpath
   value:"//body/div[@class='weui-cells weui-cells_form']/div[1]/div[@class='weui-cell__ft']/p[@class='weui-btn weui-btn_mini weui-btn_warn']"
+#处理按钮
 disposeBtn:
   type:xpath
   value:"//body/div[@class='weui-cells weui-cells_form']/div[@class='weui-cell']/div[@class='weui-cell__ft']/p[1]"
+#取消按钮
 cancelBtn:
   type:xpath
   value:"//body/div[@class='weui-cells weui-cells_form']/div[1]/div[@class='weui-cell__ft']/p[2]"
+#下一页
 nextstepBtn:
   type:id
   value:"refer"
+#页标题
 title:
   type:xpath
   value:"//div[@class='weui-header']/h1[@class='weui-header-title']"
+
+#
+#repayType:
+#  type:id
+#  value:"repayType"
+#还款方式
+repayMethod:
+  type:xpath
+  value:"//div[@class='weui-cells weui-cells_form']/div[2]"
+#选择还款方式
+chooseRepayMethod:
+  type:xpath
+  value:"/html/body//div[@class='weui-cells weui-cells_radio']/label[2]"
+#产品系列
+loanPeriod:
+  type:xpath
+  value:"//div[@class='weui-cells weui-cells_form']/div[3]"
+#选择产品系列
+chooseLoanPeriod:
+  type:xpath
+  value:"/html/body//div[@class='weui-cells weui-cells_radio']/label[5]"
+#贷款产品
 productType:
   type:xpath
   value:"//*[@id='productType']"
-repayType:
-  type:id
-  value:"repayType"
+#贷款产品
+chooseProductType:
+  type:xpath
+  value:"//*[@id='productType']"
+
+
+
