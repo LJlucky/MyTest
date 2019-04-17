@@ -63,10 +63,17 @@ chooseLoanPeriod:
 productType:
   type:xpath
   value:"//*[@id='productType']"
-#贷款产品
+#选择贷款产品
 chooseProductType:
   type:xpath
-  value:"//*[@id='productType']"
-
+  value:"/html/body//div[@class='weui-cells weui-cells_radio']/label[2]"
+#贷款期限
+loanTerm:
+  type:xpath
+  value:"/html//div[@id='dkqx']"
+#选择贷款产品
+chooseLoanTerm:
+  type:xpath
+  value:"/html/body//div[@class='weui-cells weui-cells_radio']/label[2]"
 
 
