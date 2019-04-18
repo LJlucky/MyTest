@@ -71,9 +71,27 @@ chooseProductType:
 loanTerm:
   type:xpath
   value:"/html//div[@id='dkqx']"
-#选择贷款产品
+#选择贷款期限
 chooseLoanTerm:
   type:xpath
   value:"/html/body//div[@class='weui-cells weui-cells_radio']/label[2]"
-
-
+#消费场所
+consumingPlace:
+  type:id
+  value:"consumingPlace"
+#还款周期类型
+repayType:
+  type:xpath
+  value:"//div[@class='weui-cells weui-cells_form']/div[9]"
+#选择还款周期类型
+chooseRepayType:
+  type:xpath
+  value:"/html/body//label[@class='weui-cell weui-check_label']"
+#客户来源
+customerSource:
+  type:id
+  value:"customerSource"
+#选择客户来源
+chooseCustomerSource:
+  type:xpath
+  value:"/html/body//div[@class='weui-cells weui-cells_radio']/label[3]"

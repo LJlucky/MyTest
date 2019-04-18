@@ -28,6 +28,7 @@ public class HrBusiness {
         hrOpeartion.clickNextStepBtn();
         hrOpeartion.clickNextStepBtn();
         hrOpeartion.chooseLoanInformation();
+        hrOpeartion.clickNextStepBtn();
 
     }
 

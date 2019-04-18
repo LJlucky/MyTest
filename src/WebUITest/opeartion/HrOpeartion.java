@@ -57,7 +57,7 @@ public class HrOpeartion extends WebUI {
         }
         WebElement element = getElement("searchInp");
         element.clear();
-        element.sendKeys("13288951038");
+        element.sendKeys("13966640001");
         element.sendKeys(Keys.ENTER);
         Log.info("第五步：输入搜索手机号码，点击enter键进行搜索操作");
     }
@@ -120,6 +120,8 @@ public class HrOpeartion extends WebUI {
         String repayMethod = null;
         String loanPeriod = null;
         String loanTerm = null;
+        String repayType = null;
+        String customerSource = null;
 
         try {
             Thread.sleep(500);
@@ -131,9 +133,13 @@ public class HrOpeartion extends WebUI {
             repayMethod = (String) js.executeScript("var input = document.querySelector('#repayMethod').value; return input;");
             loanPeriod = (String) js.executeScript("var input = document.querySelector('#loanProductType').value;return input;");
             productType = (String) js.executeScript("var input = document.querySelector('#productType').value; return input;");
-            loanTerm = (String)js.executeScript("var input = document.querySelector('#loanTerm').value; return input;");
+            loanTerm = (String) js.executeScript("var input = document.querySelector('#loanTerm').value; return input;");
+            repayType = (String) js.executeScript("var input = document.querySelector('#repayType').value; return input;");
+            customerSource = (String)js.executeScript("var input = document.querySelector('#customerSource').value; return input;");
+            //document.querySelector('#customerSource')
 
-            Log.info("还款方式" + repayMethod + "产品系列：" + loanPeriod + "贷款产品：" + repayMethod + "贷款期限：" + loanTerm);
+            Log.info("还款方式：" + repayMethod + " 产品系列：" + loanPeriod + " 贷款产品：" + productType);
+            Log.info("贷款期限：" + loanTerm + " 还款周期类型：" + repayType + " 客户来源 ：" + customerSource);
         } else {
             Log.info("没有获取到值=====");
         }
@@ -156,6 +162,7 @@ public class HrOpeartion extends WebUI {
         }
 
         if (repayMethod != null) {
+            loanPeriod = (String) js.executeScript("var input = document.querySelector('#loanProductType').value;return input;");
             if (loanPeriod.equals("有房贷")) {
                 Log.info("当前已选择的产品系列：" + loanPeriod);
             } else {
@@ -173,8 +180,29 @@ public class HrOpeartion extends WebUI {
         }
 
         if (loanPeriod != null) {
+            productType = (String) js.executeScript("var input = document.querySelector('#productType').value; return input;");
+            Log.info(productType);
+            if (productType.equals("有房贷（合肥中心）")) {
+                Log.info("当前已选择的产品系列：" + productType);
+            } else {
+                WebElement element = getElement("productType");
+//                click(element);
+                element.click();
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                WebElement element1 = getElement("chooseProductType");
+                click(element1);
+            }
+        }
+
+
+        if (loanPeriod != null) {
+            loanTerm = (String) js.executeScript("var input = document.querySelector('#loanTerm').value; return input;");
             if (loanTerm.equals("6期")) {
-                Log.info("当前已选择的贷款期数是：" + loanPeriod);
+                Log.info("当前已选择的贷款期数是：" + loanTerm);
             } else {
                 WebElement element = getElement("loanTerm");
 //                click(element);
@@ -189,6 +217,37 @@ public class HrOpeartion extends WebUI {
             }
         }
 
+        if (loanTerm != null) {
+            repayType = (String) js.executeScript("var input = document.querySelector('#repayType').value; return input;");
+            if (repayType.equals("月")) {
+                Log.info("当前已选择的还款周期类型是：" + repayType);
+            } else {
+                WebElement element = getElement("repayType");
+//                click(element);
+                element.click();
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                WebElement element1 = getElement("chooseRepayType");
+                click(element1);
+            }
+        }
+        if (customerSource.equals("合肥直销")) {
+            Log.info("当前已选择的客户来源是：" + repayType);
+        } else {
+            WebElement element = getElement("customerSource");
+//                click(element);
+            element.click();
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            WebElement element1 = getElement("chooseCustomerSource");
+            click(element1);
+        }
 
     }
 }

@@ -110,17 +110,12 @@ public class WebUI {
     public WebElement getElement(String key) {
         WebElement element = null;
         By by = this.getBy(key);
-//        if (isElementExist(by)) {
-//            element = driver.findElement(by);
-////            Log.info("测试是不是获取成功" + element);
-////            System.out.println("测试是不是获取成功" + element);
-//        }else{
-//            Log.info("获取" + element + "失败！！！");
-//        }
         waitForElement(by);
-//        WebDriverWait wait = new WebDriverWait(driver, 20);
-//        wait.until(ExpectedConditions.presenceOfElementLocated(by));
-//        final List<WebElement> until = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(by);
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         element = driver.findElement(by);
         return element;
     }
